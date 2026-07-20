@@ -1,0 +1,27 @@
+id: my-connector
+name: My CBDC Connector
+type: my-type
+enabled: true
+network:
+  networkId: cbdc-network
+  endpoint: https://api.cbdc.com
+  timeout: 30s
+auth:
+  type: api_key
+  apiKey: your-api-key
+timeout:
+  request: 30s
+  transaction: 5m
+retry:
+  enabled: true
+  maxAttempts: 3
+  initialDelay: 1s
+  multiplier: 2.0
+rateLimit:
+  enabled: true
+  requestsPerSecond: 100
+  burstSize: 200
+tls:
+  enabled: true
+  certificateFile: /path/to/cert.pem
+  keyFile: /path/to/key.pem
