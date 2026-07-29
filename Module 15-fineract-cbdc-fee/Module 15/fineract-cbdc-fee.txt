@@ -1,0 +1,88 @@
+fineract-cbdc-fee/
+├── go.mod
+├── go.sum
+├── README.md
+├── Makefile
+├── Dockerfile
+├── docker-compose.yml
+├── cmd/
+│   └── fee/
+│       └── main.go
+├── internal/
+│   ├── api/
+│   │   ├── handlers/
+│   │   │   ├── fee_handler.go
+│   │   │   └── fee_dto.go
+│   │   ├── middleware/
+│   │   │   ├── auth_middleware.go
+│   │   │   ├── logging_middleware.go
+│   │   │   └── validation_middleware.go
+│   │   └── routes/
+│   │       └── fee_routes.go
+│   ├── domain/
+│   │   ├── fee/
+│   │   │   ├── fee.go
+│   │   │   ├── fee_status.go
+│   │   │   ├── fee_type.go
+│   │   │   ├── fee_structure.go
+│   │   │   ├── fee_repository.go
+│   │   │   ├── fee_service.go
+│   │   │   └── fee_errors.go
+│   │   ├── calculation/
+│   │   │   ├── calculation.go
+│   │   │   ├── calculation_status.go
+│   │   │   ├── calculation_repository.go
+│   │   │   └── calculation_service.go
+│   │   └── corridor/
+│   │       ├── fee_corridor.go
+│   │       ├── corridor_status.go
+│   │       ├── corridor_repository.go
+│   │       └── corridor_service.go
+│   ├── service/
+│   │   ├── fee_service.go
+│   │   └── fee_service_impl.go
+│   ├── infrastructure/
+│   │   ├── repository/
+│   │   │   ├── fee_repository_impl.go
+│   │   │   ├── calculation_repository_impl.go
+│   │   │   └── corridor_repository_impl.go
+│   │   ├── config/
+│   │   │   ├── fee_config.go
+│   │   │   └── fee_properties.go
+│   │   ├── cache/
+│   │   │   ├── fee_cache.go
+│   │   │   └── redis_fee_cache.go
+│   │   └── calculator/
+│   │       ├── flat_calculator.go
+│   │       ├── percentage_calculator.go
+│   │       ├── tiered_calculator.go
+│   │       └── calculator_factory.go
+│   └── util/
+│       ├── fee_utils.go
+│       └── fee_constants.go
+├── pkg/
+│   ├── logger/
+│   │   └── logger.go
+│   ├── metrics/
+│   │   └── metrics.go
+│   ├── errors/
+│   │   └── errors.go
+│   └── validator/
+│       └── validator.go
+├── deployments/
+│   ├── kubernetes/
+│   │   ├── deployment.yaml
+│   │   ├── service.yaml
+│   │   ├── configmap.yaml
+│   │   └── secrets.yaml
+│   └── docker/
+│       └── Dockerfile
+├── migrations/
+│   └── 001_create_fee_tables.sql
+├── configs/
+│   ├── config.yaml
+│   └── config-dev.yaml
+└── test/
+    ├── unit/
+    ├── integration/
+    └── e2e/
