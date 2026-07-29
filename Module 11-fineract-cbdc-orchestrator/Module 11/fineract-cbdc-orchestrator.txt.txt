@@ -1,0 +1,92 @@
+fineract-cbdc-orchestrator/
+├── go.mod
+├── go.sum
+├── README.md
+├── Makefile
+├── Dockerfile
+├── docker-compose.yml
+├── cmd/
+│   └── orchestrator/
+│       └── main.go
+├── internal/
+│   ├── api/
+│   │   ├── handlers/
+│   │   │   ├── orchestrator_handler.go
+│   │   │   └── orchestrator_dto.go
+│   │   ├── middleware/
+│   │   │   ├── auth_middleware.go
+│   │   │   ├── idempotency_middleware.go
+│   │   │   ├── logging_middleware.go
+│   │   │   └── validation_middleware.go
+│   │   └── routes/
+│   │       └── orchestrator_routes.go
+│   ├── domain/
+│   │   ├── transaction/
+│   │   │   ├── transaction.go
+│   │   │   ├── transaction_status.go
+│   │   │   ├── transaction_state.go
+│   │   │   ├── transaction_type.go
+│   │   │   ├── transaction_repository.go
+│   │   │   ├── transaction_service.go
+│   │   │   ├── transaction_state_machine.go
+│   │   │   └── transaction_errors.go
+│   │   └── event/
+│   │       ├── transaction_event.go
+│   │       ├── event_publisher.go
+│   │       └── event_listener.go
+│   ├── service/
+│   │   ├── orchestrator_service.go
+│   │   └── orchestrator_service_impl.go
+│   ├── infrastructure/
+│   │   ├── repository/
+│   │   │   ├── transaction_repository_impl.go
+│   │   │   └── transaction_repository_postgres.go
+│   │   ├── config/
+│   │   │   ├── orchestrator_config.go
+│   │   │   ├── orchestrator_properties.go
+│   │   │   └── orchestrator_condition.go
+│   │   ├── exception/
+│   │   │   ├── orchestrator_error.go
+│   │   │   ├── orchestrator_error_code.go
+│   │   │   └── orchestrator_exception.go
+│   │   ├── handler/
+│   │   │   ├── state_handler.go
+│   │   │   ├── compliance_state_handler.go
+│   │   │   ├── fx_state_handler.go
+│   │   │   ├── lock_state_handler.go
+│   │   │   ├── settlement_state_handler.go
+│   │   │   └── release_lock_state_handler.go
+│   │   └── client/
+│   │       ├── cbdc_connector_client.go
+│   │       ├── fx_client.go
+│   │       ├── compliance_client.go
+│   │       └── fabric_client.go
+│   └── util/
+│       ├── orchestrator_utils.go
+│       └── orchestrator_constants.go
+├── pkg/
+│   ├── logger/
+│   │   └── logger.go
+│   ├── metrics/
+│   │   └── metrics.go
+│   ├── errors/
+│   │   └── errors.go
+│   └── validator/
+│       └── validator.go
+├── deployments/
+│   ├── kubernetes/
+│   │   ├── deployment.yaml
+│   │   ├── service.yaml
+│   │   ├── configmap.yaml
+│   │   └── secrets.yaml
+│   └── docker/
+│       └── Dockerfile
+├── migrations/
+│   └── 001_create_transactions_table.sql
+├── configs/
+│   ├── config.yaml
+│   └── config-dev.yaml
+└── test/
+    ├── unit/
+    ├── integration/
+    └── e2e/
