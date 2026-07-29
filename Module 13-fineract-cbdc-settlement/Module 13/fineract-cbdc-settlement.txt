@@ -1,0 +1,94 @@
+fineract-cbdc-settlement/
+├── go.mod
+├── go.sum
+├── README.md
+├── Makefile
+├── Dockerfile
+├── docker-compose.yml
+├── cmd/
+│   └── settlement/
+│       └── main.go
+├── internal/
+│   ├── api/
+│   │   ├── handlers/
+│   │   │   ├── settlement_handler.go
+│   │   │   └── settlement_dto.go
+│   │   ├── middleware/
+│   │   │   ├── auth_middleware.go
+│   │   │   ├── logging_middleware.go
+│   │   │   └── validation_middleware.go
+│   │   └── routes/
+│   │       └── settlement_routes.go
+│   ├── domain/
+│   │   ├── settlement/
+│   │   │   ├── settlement.go
+│   │   │   ├── settlement_status.go
+│   │   │   ├── settlement_type.go
+│   │   │   ├── settlement_repository.go
+│   │   │   ├── settlement_service.go
+│   │   │   └── settlement_errors.go
+│   │   ├── lock/
+│   │   │   ├── fund_lock.go
+│   │   │   ├── lock_status.go
+│   │   │   ├── lock_repository.go
+│   │   │   ├── lock_service.go
+│   │   │   └── lock_errors.go
+│   │   ├── burn/
+│   │   │   ├── burn_record.go
+│   │   │   ├── burn_status.go
+│   │   │   ├── burn_repository.go
+│   │   │   └── burn_service.go
+│   │   └── compensation/
+│   │       ├── compensation.go
+│   │       ├── compensation_status.go
+│   │       ├── compensation_repository.go
+│   │       └── compensation_service.go
+│   ├── service/
+│   │   ├── settlement_service.go
+│   │   └── settlement_service_impl.go
+│   ├── infrastructure/
+│   │   ├── repository/
+│   │   │   ├── settlement_repository_impl.go
+│   │   │   ├── lock_repository_impl.go
+│   │   │   ├── burn_repository_impl.go
+│   │   │   └── compensation_repository_impl.go
+│   │   ├── config/
+│   │   │   ├── settlement_config.go
+│   │   │   └── settlement_properties.go
+│   │   ├── client/
+│   │   │   ├── cbdc_connector_client.go
+│   │   │   ├── fabric_client.go
+│   │   │   ├── circuit_breaker.go
+│   │   │   └── retry_client.go
+│   │   └── coordinator/
+│   │       ├── two_phase_coordinator.go
+│   │       └── saga_coordinator.go
+│   └── util/
+│       ├── settlement_utils.go
+│       └── settlement_constants.go
+├── pkg/
+│   ├── logger/
+│   │   └── logger.go
+│   ├── metrics/
+│   │   └── metrics.go
+│   ├── errors/
+│   │   └── errors.go
+│   └── validator/
+│       └── validator.go
+├── deployments/
+│   ├── kubernetes/
+│   │   ├── deployment.yaml
+│   │   ├── service.yaml
+│   │   ├── configmap.yaml
+│   │   └── secrets.yaml
+│   └── docker/
+│       └── Dockerfile
+├── migrations/
+│   └── 001_create_settlement_tables.sql
+├── configs/
+│   ├── config.yaml
+│   └── config-dev.yaml
+└── test/
+    ├── unit/
+    ├── integration/
+    └── e2e/
