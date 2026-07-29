@@ -1,0 +1,6 @@
+# configs/config.yaml
+fineract:
+  base_url: "YOUR_FINERACT_URL"  # Fineract API URL
+  tenant_id: "YOUR_TENANT"  # Tenant identifier
+  username: "YOUR_USERNAME"  # Fineract username
+  password: "YOUR_PASSWORD"  # Fineract password

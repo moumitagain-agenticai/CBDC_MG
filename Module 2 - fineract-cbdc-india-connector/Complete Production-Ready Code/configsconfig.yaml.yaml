@@ -1,0 +1,98 @@
+version: "1.0.0"
+environment: "sandbox"
+
+api:
+  port: 8080
+  read_timeout: 30s
+  write_timeout: 30s
+  idle_timeout: 60s
+  shutdown_timeout: 10s
+  rate_limit:
+    enabled: true
+    rpm: 100
+    burst: 200
+  cors:
+    enabled: true
+    allowed_origins:
+      - "*"
+    allowed_methods:
+      - "GET"
+      - "POST"
+      - "PUT"
+      - "DELETE"
+      - "OPTIONS"
+    allowed_headers:
+      - "Accept"
+      - "Authorization"
+      - "Content-Type"
+      - "X-CSRF-Token"
+
+database:
+  driver: "postgres"
+  host: "localhost"
+  port: 5432
+  user: "cbdc_user"
+  password: "${DB_PASSWORD}"
+  dbname: "cbdc_connector"
+  ssl_mode: "disable"
+  max_open_conns: 25
+  max_idle_conns: 5
+  conn_max_lifetime: 5m
+
+cbdc:
+  base_url: "https://api.sandbox.cbdc.rbi.org.in/v1"
+  api_key: "${CBDC_API_KEY}"
+  api_secret: "${CBDC_API_SECRET}"
+  timeout: 30s
+  sponsor_bank_id: "SPONSOR_BANK_ID"
+  merchant_id: "MERCHANT_ID"
+  terminal_id: "TERMINAL_ID"
+  environment: "sandbox"
+  endpoints:
+    issue: "/issue"
+    transfer: "/transfer"
+    lock: "/lock"
+    burn: "/burn"
+    redeem: "/redeem"
+    balance: "/balance"
+    status: "/transactions"
+    health: "/health"
+
+fineract:
+  base_url: "http://localhost:8081/fineract-provider/api/v1"
+  tenant_id: "default"
+  username: "mifos"
+  password: "password"
+  token: "${FINERACT_TOKEN}"
+  timeout: 30s
+  endpoints:
+    transactions: "/transactions"
+    accounts: "/accounts"
+    customers: "/customers"
+    health: "/health"
+
+log:
+  level: "info"
+  format: "json"
+
+metrics:
+  enabled: true
+  path: "/metrics"
+
+retry:
+  max_attempts: 3
+  initial_delay: 1s
+  max_delay: 30s
+  multiplier: 2.0
+  retryable_errors:
+    - "transaction_timeout"
+    - "rate_limit"
+    - "transaction_failed"
+
+circuit_breaker:
+  enabled: true
+  max_requests: 5
+  interval: 30s
+  timeout: 60s
+  failure_threshold: 0.5
+  success_threshold: 2

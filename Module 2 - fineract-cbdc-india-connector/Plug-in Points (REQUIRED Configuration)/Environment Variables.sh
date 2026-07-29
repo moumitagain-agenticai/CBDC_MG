@@ -1,0 +1,5 @@
+# .env
+DB_PASSWORD=your_db_password
+CBDC_API_KEY=your_cbdc_api_key
+CBDC_API_SECRET=your_cbdc_api_secret
+FINERACT_TOKEN=your_fineract_token

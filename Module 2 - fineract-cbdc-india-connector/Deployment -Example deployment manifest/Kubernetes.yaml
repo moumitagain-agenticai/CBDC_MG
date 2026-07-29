@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fineract-cbdc-india-connector
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fineract-cbdc-india-connector
+  template:
+    metadata:
+      labels:
+        app: fineract-cbdc-india-connector
+    spec:
+      containers:
+      - name: connector
+        image: fineract-cbdc-india-connector:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: CBDC_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: cbdc-credentials
+              key: api-key
+        - name: CBDC_API_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: cbdc-credentials
+              key: api-secret
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"

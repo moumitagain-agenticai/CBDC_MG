@@ -1,0 +1,59 @@
+fineract-cbdc-india-connector/
+├── cmd/
+│   └── server/
+│       ├── main.go
+│       └── main_test.go
+├── internal/
+│   ├── domain/
+│   │   ├── transaction.go
+│   │   ├── wallet.go
+│   │   └── errors.go
+│   ├── ports/
+│   │   ├── cbdc_client.go
+│   │   ├── fineract_client.go
+│   │   └── repository.go
+│   ├── adapters/
+│   │   ├── api/
+│   │   │   ├── handlers.go
+│   │   │   ├── routes.go
+│   │   │   └── middleware.go
+│   │   ├── client/
+│   │   │   ├── cbdc_client.go
+│   │   │   └── fineract_client.go
+│   │   └── repository/
+│   │       └── transaction_repo.go
+│   ├── service/
+│   │   ├── connector.go
+│   │   ├── transaction.go
+│   │   └── health.go
+│   └── config/
+│       └── config.go
+├── pkg/
+│   ├── logger/
+│   │   └── logger.go
+│   ├── metrics/
+│   │   └── metrics.go
+│   └── utils/
+│       └── retry.go
+├── api/
+│   └── openapi.yaml
+├── configs/
+│   └── config.example.yaml
+├── deployments/
+│   ├── Dockerfile
+│   └── docker-compose.yaml
+├── scripts/
+│   ├── build.sh
+│   └── test.sh
+├── test/
+│   ├── integration/
+│   │   └── integration_test.go
+│   └── mocks/
+│       ├── mock_cbdc_client.go
+│       └── mock_fineract_client.go
+├── go.mod
+├── go.sum
+├── Makefile
+├── .env.example
+├── .golangci.yml
+└── README.md

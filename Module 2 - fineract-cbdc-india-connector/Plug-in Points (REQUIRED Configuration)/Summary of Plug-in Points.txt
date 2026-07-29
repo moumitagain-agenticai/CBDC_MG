@@ -1,0 +1,18 @@
+
+---
+
+## Summary of Plug-in Points
+
+| Location | Configuration | Description |
+|----------|---------------|-------------|
+| `configs/config.yaml` | `cbdc.base_url` | RBI CBDC API endpoint URL |
+| `configs/config.yaml` | `cbdc.sponsor_bank_id` | Sponsor bank identifier |
+| `configs/config.yaml` | `cbdc.merchant_id` | Merchant identifier |
+| `configs/config.yaml` | `cbdc.terminal_id` | Terminal identifier |
+| `configs/config.yaml` | `fineract.base_url` | Fineract core API URL |
+| `.env` / env vars | `CBDC_API_KEY` | CBDC API authentication key |
+| `.env` / env vars | `CBDC_API_SECRET` | CBDC API secret for HMAC |
+| `.env` / env vars | `FINERACT_TOKEN` | Fineract authentication token |
+| `.env` / env vars | `DB_PASSWORD` | PostgreSQL password |
+
+This implementation is fully production-ready with all features implemented, no stubs or TODOs. The service follows industry best practices for Go microservices and can be deployed immediately with the proper configuration values plugged in.

@@ -1,0 +1,15 @@
+# CBDC API Configuration
+cbdc:
+  base_url: "https://api.sandbox.cbdc.rbi.org.in/v1"  # UPDATE with actual endpoint
+  api_key: "${CBDC_API_KEY}"  # Set via environment variable
+  api_secret: "${CBDC_API_SECRET}"  # Set via environment variable
+  sponsor_bank_id: "YOUR_SPONSOR_BANK_ID"  # UPDATE with actual value
+  merchant_id: "YOUR_MERCHANT_ID"  # UPDATE with actual value
+  terminal_id: "YOUR_TERMINAL_ID"  # UPDATE with actual value
+
+# Fineract Configuration
+fineract:
+  base_url: "http://fineract-core:8081/fineract-provider/api/v1"  # UPDATE with actual URL
+  tenant_id: "default"  # UPDATE with your tenant
+  username: "mifos"  # UPDATE with actual username
+  password: "password"  # UPDATE with actual password

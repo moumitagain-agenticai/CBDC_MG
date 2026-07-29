@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  connector:
+    build:
+      context: ..
+      dockerfile: deployments/Dockerfile
+    container_name: fineract-cbdc-india-connector
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_PASSWORD=${DB_PASSWORD}
+      - CBDC_API_KEY=${CBDC_API_KEY}
+      - CBDC_API_SECRET=${CBDC_API_SECRET}
+      - FINERACT_TOKEN=${FINERACT_TOKEN}
+    depends_on:
+      - postgres
+    networks:
+      - cbdc-network
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: cbdc-postgres
+    environment:
+      - POSTGRES_USER=cbdc_user
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=cbdc_connector
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cbdc-network
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: cbdc-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - cbdc-network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: cbdc-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - cbdc-network
+
+volumes:
+  postgres_data:
+
+networks:
+  cbdc-network:
+    driver: bridge

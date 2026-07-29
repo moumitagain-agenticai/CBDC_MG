@@ -1,0 +1,1 @@
+curl "http://localhost:8080/api/v1/cbdc/balance?wallet_id=wallet-123&currency=INR"
