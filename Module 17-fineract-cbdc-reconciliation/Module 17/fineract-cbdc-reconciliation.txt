@@ -1,0 +1,98 @@
+fineract-cbdc-reconciliation/
+├── go.mod
+├── go.sum
+├── README.md
+├── Makefile
+├── Dockerfile
+├── docker-compose.yml
+├── cmd/
+│   └── reconciliation/
+│       └── main.go
+├── internal/
+│   ├── api/
+│   │   ├── handlers/
+│   │   │   ├── reconciliation_handler.go
+│   │   │   └── reconciliation_dto.go
+│   │   ├── middleware/
+│   │   │   ├── auth_middleware.go
+│   │   │   ├── logging_middleware.go
+│   │   │   └── validation_middleware.go
+│   │   └── routes/
+│   │       └── reconciliation_routes.go
+│   ├── domain/
+│   │   ├── reconciliation/
+│   │   │   ├── reconciliation.go
+│   │   │   ├── reconciliation_status.go
+│   │   │   ├── reconciliation_type.go
+│   │   │   ├── reconciliation_repository.go
+│   │   │   ├── reconciliation_service.go
+│   │   │   └── reconciliation_errors.go
+│   │   ├── statement/
+│   │   │   ├── bank_statement.go
+│   │   │   ├── statement_status.go
+│   │   │   ├── statement_repository.go
+│   │   │   └── statement_service.go
+│   │   ├── matching/
+│   │   │   ├── match_result.go
+│   │   │   ├── match_status.go
+│   │   │   ├── matching_engine.go
+│   │   │   └── matching_rules.go
+│   │   └── exception/
+│   │       ├── exception_item.go
+│   │       ├── exception_status.go
+│   │       ├── exception_type.go
+│   │       ├── exception_repository.go
+│   │       └── exception_service.go
+│   ├── service/
+│   │   ├── reconciliation_service.go
+│   │   └── reconciliation_service_impl.go
+│   ├── infrastructure/
+│   │   ├── repository/
+│   │   │   ├── reconciliation_repository_impl.go
+│   │   │   ├── statement_repository_impl.go
+│   │   │   ├── exception_repository_impl.go
+│   │   │   └── matching_repository_impl.go
+│   │   ├── config/
+│   │   │   ├── reconciliation_config.go
+│   │   │   └── reconciliation_properties.go
+│   │   ├── matcher/
+│   │   │   ├── rule_based_matcher.go
+│   │   │   ├── fuzzy_matcher.go
+│   │   │   └── matching_engine.go
+│   │   ├── parser/
+│   │   │   ├── statement_parser.go
+│   │   │   ├── csv_parser.go
+│   │   │   ├── xml_parser.go
+│   │   │   └── mt940_parser.go
+│   │   └── client/
+│   │       ├── bank_client.go
+│   │       └── finacle_client.go
+│   └── util/
+│       ├── reconciliation_utils.go
+│       └── reconciliation_constants.go
+├── pkg/
+│   ├── logger/
+│   │   └── logger.go
+│   ├── metrics/
+│   │   └── metrics.go
+│   ├── errors/
+│   │   └── errors.go
+│   └── validator/
+│       └── validator.go
+├── deployments/
+│   ├── kubernetes/
+│   │   ├── deployment.yaml
+│   │   ├── service.yaml
+│   │   ├── configmap.yaml
+│   │   └── secrets.yaml
+│   └── docker/
+│       └── Dockerfile
+├── migrations/
+│   └── 001_create_reconciliation_tables.sql
+├── configs/
+│   ├── config.yaml
+│   └── config-dev.yaml
+└── test/
+    ├── unit/
+    ├── integration/
+    └── e2e/
