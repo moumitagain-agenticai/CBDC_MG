@@ -1,0 +1,23 @@
+module github.com/apache/fineract-cbdc-compliance
+
+go 1.21
+
+require (
+    github.com/gin-gonic/gin v1.9.1
+    github.com/go-redis/redis/v8 v8.11.5
+    github.com/golang-jwt/jwt/v5 v5.2.0
+    github.com/google/uuid v1.6.0
+    github.com/lib/pq v1.10.9
+    github.com/prometheus/client_golang v1.19.0
+    github.com/shopspring/decimal v1.4.0
+    github.com/spf13/viper v1.18.2
+    github.com/stretchr/testify v1.9.0
+    github.com/sony/gobreaker v0.5.0
+    github.com/hashicorp/golang-lru v1.0.2
+    go.opentelemetry.io/otel v1.26.0
+    go.opentelemetry.io/otel/trace v1.26.0
+    go.uber.org/zap v1.27.0
+    gorm.io/driver/postgres v1.5.7
+    gorm.io/gorm v1.25.10
+    gopkg.in/yaml.v3 v3.0.1
+)

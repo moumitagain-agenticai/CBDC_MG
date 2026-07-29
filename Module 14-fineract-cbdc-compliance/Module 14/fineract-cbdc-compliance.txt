@@ -1,0 +1,97 @@
+fineract-cbdc-compliance/
+├── go.mod
+├── go.sum
+├── README.md
+├── Makefile
+├── Dockerfile
+├── docker-compose.yml
+├── cmd/
+│   └── compliance/
+│       └── main.go
+├── internal/
+│   ├── api/
+│   │   ├── handlers/
+│   │   │   ├── compliance_handler.go
+│   │   │   └── compliance_dto.go
+│   │   ├── middleware/
+│   │   │   ├── auth_middleware.go
+│   │   │   ├── logging_middleware.go
+│   │   │   └── validation_middleware.go
+│   │   └── routes/
+│   │       └── compliance_routes.go
+│   ├── domain/
+│   │   ├── screening/
+│   │   │   ├── screening.go
+│   │   │   ├── screening_status.go
+│   │   │   ├── screening_type.go
+│   │   │   ├── screening_repository.go
+│   │   │   ├── screening_service.go
+│   │   │   └── screening_errors.go
+│   │   ├── sanctions/
+│   │   │   ├── sanctions_list.go
+│   │   │   ├── sanctions_status.go
+│   │   │   ├── sanctions_repository.go
+│   │   │   ├── sanctions_service.go
+│   │   │   └── sanctions_errors.go
+│   │   ├── compliance/
+│   │   │   ├── compliance_check.go
+│   │   │   ├── compliance_status.go
+│   │   │   ├── compliance_result.go
+│   │   │   ├── compliance_repository.go
+│   │   │   └── compliance_errors.go
+│   │   └── audit/
+│   │       ├── audit_trail.go
+│   │       ├── audit_status.go
+│   │       ├── audit_repository.go
+│   │       └── audit_service.go
+│   ├── service/
+│   │   ├── compliance_service.go
+│   │   └── compliance_service_impl.go
+│   ├── infrastructure/
+│   │   ├── repository/
+│   │   │   ├── screening_repository_impl.go
+│   │   │   ├── sanctions_repository_impl.go
+│   │   │   ├── compliance_repository_impl.go
+│   │   │   └── audit_repository_impl.go
+│   │   ├── config/
+│   │   │   ├── compliance_config.go
+│   │   │   └── compliance_properties.go
+│   │   ├── client/
+│   │   │   ├── sanctions_provider_client.go
+│   │   │   ├── ofac_client.go
+│   │   │   ├── un_client.go
+│   │   │   ├── circuit_breaker.go
+│   │   │   └── retry_client.go
+│   │   └── rules/
+│   │       ├── rule_engine.go
+│   │       ├── rules_loader.go
+│   │       └── compliance_rules.yaml
+│   └── util/
+│       ├── compliance_utils.go
+│       └── compliance_constants.go
+├── pkg/
+│   ├── logger/
+│   │   └── logger.go
+│   ├── metrics/
+│   │   └── metrics.go
+│   ├── errors/
+│   │   └── errors.go
+│   └── validator/
+│       └── validator.go
+├── deployments/
+│   ├── kubernetes/
+│   │   ├── deployment.yaml
+│   │   ├── service.yaml
+│   │   ├── configmap.yaml
+│   │   └── secrets.yaml
+│   └── docker/
+│       └── Dockerfile
+├── migrations/
+│   └── 001_create_compliance_tables.sql
+├── configs/
+│   ├── config.yaml
+│   └── config-dev.yaml
+└── test/
+    ├── unit/
+    ├── integration/
+    └── e2e/
