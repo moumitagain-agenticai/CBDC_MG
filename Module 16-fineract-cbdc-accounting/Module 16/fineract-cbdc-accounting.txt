@@ -1,0 +1,85 @@
+fineract-cbdc-accounting/
+├── go.mod
+├── go.sum
+├── README.md
+├── Makefile
+├── Dockerfile
+├── docker-compose.yml
+├── cmd/
+│   └── accounting/
+│       └── main.go
+├── internal/
+│   ├── api/
+│   │   ├── handlers/
+│   │   │   ├── accounting_handler.go
+│   │   │   └── accounting_dto.go
+│   │   ├── middleware/
+│   │   │   ├── auth_middleware.go
+│   │   │   ├── logging_middleware.go
+│   │   │   └── validation_middleware.go
+│   │   └── routes/
+│   │       └── accounting_routes.go
+│   ├── domain/
+│   │   ├── ledger/
+│   │   │   ├── ledger_account.go
+│   │   │   ├── ledger_entry.go
+│   │   │   ├── ledger_status.go
+│   │   │   ├── ledger_type.go
+│   │   │   ├── ledger_repository.go
+│   │   │   ├── ledger_service.go
+│   │   │   └── ledger_errors.go
+│   │   ├── position/
+│   │   │   ├── currency_position.go
+│   │   │   ├── position_status.go
+│   │   │   ├── position_repository.go
+│   │   │   └── position_service.go
+│   │   └── revaluation/
+│   │       ├── revaluation.go
+│   │       ├── revaluation_status.go
+│   │       ├── revaluation_repository.go
+│   │       └── revaluation_service.go
+│   ├── service/
+│   │   ├── accounting_service.go
+│   │   └── accounting_service_impl.go
+│   ├── infrastructure/
+│   │   ├── repository/
+│   │   │   ├── ledger_repository_impl.go
+│   │   │   ├── position_repository_impl.go
+│   │   │   └── revaluation_repository_impl.go
+│   │   ├── config/
+│   │   │   ├── accounting_config.go
+│   │   │   └── accounting_properties.go
+│   │   ├── revaluator/
+│   │   │   ├── revaluator.go
+│   │   │   └── revaluation_engine.go
+│   │   └── client/
+│   │       └── fx_client.go
+│   └── util/
+│       ├── accounting_utils.go
+│       └── accounting_constants.go
+├── pkg/
+│   ├── logger/
+│   │   └── logger.go
+│   ├── metrics/
+│   │   └── metrics.go
+│   ├── errors/
+│   │   └── errors.go
+│   └── validator/
+│       └── validator.go
+├── deployments/
+│   ├── kubernetes/
+│   │   ├── deployment.yaml
+│   │   ├── service.yaml
+│   │   ├── configmap.yaml
+│   │   └── secrets.yaml
+│   └── docker/
+│       └── Dockerfile
+├── migrations/
+│   └── 001_create_accounting_tables.sql
+├── configs/
+│   ├── config.yaml
+│   └── config-dev.yaml
+└── test/
+    ├── unit/
+    ├── integration/
+    └── e2e/
